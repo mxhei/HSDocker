@@ -5,9 +5,9 @@ RUN \
     rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 # change yum repository
     && mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
-    && curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-${VERSION:0:1}.repo \
+    && curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo \
     && sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo \
-    && curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-${VERSION:0:1}.repo \
+    && curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo \
     && pkgList="wget gcc gcc-c++ make cmake autoconf glibc glibc-devel openssl openssl-devel libevent-devel vim zip unzip net-tools telnet" \
     && yum install -y ${pkgList} \
 # install Jemalloc
