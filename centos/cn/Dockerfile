@@ -13,6 +13,7 @@ RUN groupadd -r -g 1000 redis \
     && make -j $(nproc) && make install \
     && mv redis.conf /etc/redis.conf \
     && popd >/dev/null \
+    && rm -rf /tmp/redis* \
     && sed -i 's@pidfile.*@pidfile /var/run/redis/redis.pid@' /etc/redis.conf \
     && sed -i "s@logfile.*@logfile /data/logs/redis.log@" /etc/redis.conf \
     && sed -i "s@^dir.*@dir /data/db@" /etc/redis.conf \
