@@ -1,6 +1,6 @@
 FROM centos:7
 
-RUN pkgList="wget gcc gcc-c++ make cmake autoconf glibc glibc-devel openssl openssl-devel libevent-devel vim zip unzip net-tools telnet" \
+RUN pkgList="wget gcc gcc-c++ make cmake autoconf glibc glibc-devel bzip2 bzip2-devel readline-devel openssl openssl-devel libevent-devel vim zip unzip net-tools telnet" \
     && yum install -y ${pkgList} \
 # install Jemalloc
     && wget -4 -O /tmp/jemalloc-5.2.1.tar.bz2 http://mirrors.linuxeye.com/oneinstack/src/jemalloc-5.2.1.tar.bz2 \
